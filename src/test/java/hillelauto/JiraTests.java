@@ -36,7 +36,7 @@ public class JiraTests extends WebDriverTestBase{
 
     @Test(description = "4. Open Issue", dependsOnMethods = {"createIssue"},  groups = {"Sanity", "Issues"})
     public void openIssue() {
-        issuePage.createIssue();
+        issuePage.openIssue();
     }
 
     @Test(description = "5. Upload File", dependsOnMethods = {"openIssue"}, groups = {"Sanity", "Issues"})

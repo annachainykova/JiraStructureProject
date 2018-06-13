@@ -24,11 +24,11 @@ public class IssuePage {
 
     @FindBy(css = "a[id='create_link']")
     private WebElement buttonCreateIssue;
-    @FindBy(css = "a[class='issue-created-key']")
+    @FindBy(css = "a[class='issue-created-key issue-link']")
     private List <WebElement> linkNewIssues;
-    @FindBy(css = "input[class='issue-drop-zone__file']")
+    @FindBy(css = "input[class='issue-drop-zone__file ignore-inline-attach']")
     private WebElement inputUploadAttachment;
-    @FindBy(css = "a[class='attachemnt-title']")
+    @FindBy(css = "a[class='attachment-title']")
     private WebElement linkAttachmentName;
 
 
@@ -62,7 +62,7 @@ public class IssuePage {
                 .until(driver -> linkAttachmentName);
         Assert.assertEquals(JiraVars.attachmentFileName, linkAttachmentName.getText());
 
-        attachmentLink = linkAttachmentName.getText();
+        attachmentLink = linkAttachmentName.getAttribute("href");
     }
 
     public void downloadAttachment() {
