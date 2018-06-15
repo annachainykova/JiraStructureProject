@@ -2,11 +2,15 @@ package hillelauto;
 
 import hilleauto.Jira.Pages.IssuePage;
 import hilleauto.Jira.Pages.LoginPage;
+
 import hilleauto.WebDriverTestBase;
+
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+
+import java.io.IOException;
 
 public class JiraTests extends WebDriverTestBase{
     private LoginPage loginPage;
@@ -45,7 +49,13 @@ public class JiraTests extends WebDriverTestBase{
     }
 
     @Test(description = "6. Download FIle", dependsOnMethods = {"uploadFile"},  groups = {"Sanity", "Issues"})
-    public void downloadFile() {
+    public void downloadFile() throws IOException, InterruptedException {
         issuePage.downloadAttachment();
     }
+
+//    @Test(dependsOnMethods = "successfulLogin")
+//    public void df() throws IOException {
+//        URL website = new URL("http://jira.hillel.it:8080/secure/attachment/13608/Example.png");
+//        Tools.downloadFileFromURL(website);
+//    }
 }

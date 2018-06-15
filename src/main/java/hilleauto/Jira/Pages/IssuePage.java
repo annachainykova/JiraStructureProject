@@ -10,6 +10,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
 
+import java.io.IOException;
+
+import java.net.URL;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -65,7 +69,12 @@ public class IssuePage {
         attachmentLink = linkAttachmentName.getAttribute("href");
     }
 
-    public void downloadAttachment() {
+    public void downloadAttachment() throws IOException, InterruptedException {
         driver.get(attachmentLink);
+        URL website = new URL(driver.getCurrentUrl());
+        Tools.downloadFileFromURL(website);
+        Assert.assertEquals(Tools.hashOfFile(JiraVars.attachmentFileLocation+JiraVars.attachmentFileName),
+                Tools.hashOfFile(JiraVars.attachmentFileLocation + JiraVars.downloadedFileName));
+
     }
 }

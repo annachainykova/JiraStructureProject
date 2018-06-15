@@ -12,4 +12,7 @@ public interface JiraVars {
 
     public static final String attachmentFileLocation = "C:\\Users\\anya_\\Downloads\\";
     public static final String attachmentFileName = "500.jpeg";
+
+    public static final String downloadedFileName = "downladed" + attachmentFileName;
+
 }
