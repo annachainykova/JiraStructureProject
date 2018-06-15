@@ -57,17 +57,4 @@ public class JiraTests extends WebDriverTestBase{
     public void downloadFile() throws IOException, InterruptedException, URISyntaxException {
         issuePage.downloadAttachment();
     }
-
-//    @Test(dependsOnMethods = "successfulLogin")
-//    public void df() throws IOException {
-//        URL website = new URL("http://jira.hillel.it:8080/secure/attachment/13608/Example.png");
-//        Tools.downloadFileFromURL(website);
-//    }
-
-    //@Test
-//    public void compare() throws IOException {
-//        File file1= new File(JiraVars.attachmentFileLocation + JiraVars.attachmentFileName);
-//        File file2= new File(JiraVars.attachmentFileLocation + JiraVars.downloadedFileName);
-//        Assert.assertTrue(FileUtils.contentEquals(file1, file2));
-//    }
 }

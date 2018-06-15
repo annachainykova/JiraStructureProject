@@ -11,8 +11,8 @@ public interface JiraVars {
     public static final String issueProject = "General QA Robert (GQR)\n";
 
     public static final String attachmentFileLocation = "C:\\Users\\anya_\\Downloads\\";
-    public static final String attachmentFileName = "500.jpeg";
+    public static final String attachmentFileName = "500 (1).jpeg";
 
-    public static final String downloadedFileName = "500 (1).jpeg";;
+    public static final String downloadedFileName = "500 (2).jpeg";;
 
 }

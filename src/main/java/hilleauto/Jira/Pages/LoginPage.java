@@ -39,7 +39,7 @@ public class LoginPage {
     public void login(boolean successful) {
         driver.get(JiraVars.baseURL);
 
-        Tools.clearAndFill(inputUsername, JiraVars.username);
-        Tools.clearAndFill(inputPassword, successful ? JiraVars.password : "badPassword").submit();
+        Tools.clearAndFill(inputUsername, successful ? JiraVars.username : "BadLogin");
+        Tools.clearAndFill(inputPassword, JiraVars.password).submit();
     }
 }
