@@ -1,16 +1,21 @@
 package hillelauto;
 
+import hilleauto.Jira.JiraVars;
 import hilleauto.Jira.Pages.IssuePage;
 import hilleauto.Jira.Pages.LoginPage;
 
 import hilleauto.WebDriverTestBase;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class JiraTests extends WebDriverTestBase{
     private LoginPage loginPage;
@@ -49,7 +54,7 @@ public class JiraTests extends WebDriverTestBase{
     }
 
     @Test(description = "6. Download FIle", dependsOnMethods = {"uploadFile"},  groups = {"Sanity", "Issues"})
-    public void downloadFile() throws IOException, InterruptedException {
+    public void downloadFile() throws IOException, InterruptedException, URISyntaxException {
         issuePage.downloadAttachment();
     }
 
@@ -57,5 +62,12 @@ public class JiraTests extends WebDriverTestBase{
 //    public void df() throws IOException {
 //        URL website = new URL("http://jira.hillel.it:8080/secure/attachment/13608/Example.png");
 //        Tools.downloadFileFromURL(website);
+//    }
+
+    //@Test
+//    public void compare() throws IOException {
+//        File file1= new File(JiraVars.attachmentFileLocation + JiraVars.attachmentFileName);
+//        File file2= new File(JiraVars.attachmentFileLocation + JiraVars.downloadedFileName);
+//        Assert.assertTrue(FileUtils.contentEquals(file1, file2));
 //    }
 }
