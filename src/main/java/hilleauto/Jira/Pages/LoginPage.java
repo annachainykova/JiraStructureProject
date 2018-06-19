@@ -42,4 +42,13 @@ public class LoginPage {
         Tools.clearAndFill(inputUsername, successful ? JiraVars.username : "BadLogin");
         Tools.clearAndFill(inputPassword, JiraVars.password).submit();
     }
+
+    public void successfulAdminLogin() {
+        driver.get(JiraVars.baseURL);
+
+        Tools.clearAndFill(inputUsername, JiraVars.adminUsername);
+        Tools.clearAndFill(inputPassword, JiraVars.adminPassword).submit();
+
+        Assert.assertEquals(JiraVars.adminUsername, buttonProfile.getAttribute("data-username"));
+    }
 }

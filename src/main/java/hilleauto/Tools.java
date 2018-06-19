@@ -32,6 +32,10 @@ public class Tools {
         return new SimpleDateFormat("dd/MM/yy HH:mm").format(new Date());
     }
 
+    public static String timestampForUser() {
+        return new SimpleDateFormat("yyMMddHHmmss").format(new Date());
+    }
+
     public static String hashOfFile(String filePath) throws IOException {
         FileInputStream fis = new FileInputStream(new File(filePath));
         return org.apache.commons.codec.digest.DigestUtils.md5Hex(fis);
