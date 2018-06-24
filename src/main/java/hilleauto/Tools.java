@@ -5,6 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import javax.imageio.ImageIO;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
@@ -12,6 +16,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+
 
 public class Tools {
     private static WebDriver driver;
@@ -47,5 +53,12 @@ public class Tools {
                 , StandardCopyOption.REPLACE_EXISTING);
         in.close();
 
+    }
+
+    public static void captureScreen(String methodName) throws AWTException, IOException {
+        String fileName = "E://screenshotFailure.png";
+        Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+        BufferedImage capture = new Robot().createScreenCapture(screenRect);
+        ImageIO.write(capture, "png", new File(fileName));
     }
 }

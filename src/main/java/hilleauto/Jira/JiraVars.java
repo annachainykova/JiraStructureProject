@@ -24,4 +24,7 @@ public interface JiraVars {
 
     public static final String downloadedFileName = "500 (2).jpeg";;
 
+    public static final String screenShotFailureFileLocation = "E:\\Anna\\JiraTests\\FailureScreenShots\\";
+
+
 }

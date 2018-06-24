@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 
+import java.awt.*;
+import java.io.IOException;
 import java.util.List;
 
 public class LoginPage {    
@@ -31,7 +33,7 @@ public class LoginPage {
         Assert.assertEquals(JiraVars.username, buttonProfile.getAttribute("data-username"));
     }
     
-    public void failureLogin() {
+    public void failureLogin() throws IOException, AWTException {
         login(false);
         Assert.assertTrue(messageError.size() != 0);
     }
