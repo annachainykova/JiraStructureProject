@@ -1,11 +1,10 @@
 package hillelauto.ApiTests;
 
-import hillelauto.APITests.Pages1.ApiIssuePages;
+import hillelauto.ApiTests.Pages.ApiIssuePages;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ApiTests {
-
 
 
     ApiIssuePages apiIssuePages = new ApiIssuePages();
