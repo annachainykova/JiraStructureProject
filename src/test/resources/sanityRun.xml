@@ -1,0 +1,19 @@
+<suite name="Sanity Suite" verbose="0" group-by-instances="true">
+    <listeners>
+        <listener class-name="hillelauto.Jira.listeners.RetryListener"/>
+        <listener class-name="hillelauto.Jira.listeners.TestListener"/>
+    </listeners>
+    <test name="Sanity" verbose="1" group-by-instances="true">
+         <parameter name="testRailProjectId" value="1"/>
+        <parameter name="testRailRunPrefix" value="Jira"/>
+        <groups>
+            <run>
+                <exclude name="disabled"/>
+                <include name="Sanity"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="hillelauto"/>
+        </packages>
+    </test>
+</suite>

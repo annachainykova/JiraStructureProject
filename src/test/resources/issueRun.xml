@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Sanity Suite" verbose="0" group-by-instances="true">
+    <test name="Sanity" verbose="1" group-by-instances="true">
+        <groups>
+            <run>
+                <exclude name="disabled"/>
+                <include name="Issues.*"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="hillelauto.jira"/>
+        </packages>
+    </test>
+</suite>
