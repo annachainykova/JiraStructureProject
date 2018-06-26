@@ -1,10 +1,11 @@
-package hillelauto;
+package hillelauto.JiraTests;
 import hillelauto.Jira.reporting.APIException;
 import hillelauto.Jira.Pages.AdminPanelPage;
 import hillelauto.Jira.Pages.IssuePage;
 import hillelauto.Jira.Pages.LoginPage;
 import hillelauto.Jira.Pages.MainPage;
 
+import hillelauto.WebDriverTestBase;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestNGMethod;
@@ -24,7 +25,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class JiraTests extends WebDriverTestBase{
+public class JiraTests extends WebDriverTestBase {
     private LoginPage loginPage;
     private IssuePage issuePage;
     private MainPage mainPage;
