@@ -1,11 +1,9 @@
 package hillelauto;
-import hilleauto.Jira.APIException;
-import hilleauto.Jira.Pages.AdminPanelPage;
-import hilleauto.Jira.Pages.IssuePage;
-import hilleauto.Jira.Pages.LoginPage;
-import hilleauto.Jira.Pages.MainPage;
-
-import hilleauto.WebDriverTestBase;
+import hillelauto.Jira.reporting.APIException;
+import hillelauto.Jira.Pages.AdminPanelPage;
+import hillelauto.Jira.Pages.IssuePage;
+import hillelauto.Jira.Pages.LoginPage;
+import hillelauto.Jira.Pages.MainPage;
 
 import org.json.simple.JSONObject;
 import org.openqa.selenium.support.PageFactory;
@@ -128,4 +126,7 @@ public class JiraTests extends WebDriverTestBase{
     public void adminCreateUser() {
         adminPanelPage.createUser();
     }
+
+
+
 }

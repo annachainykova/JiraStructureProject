@@ -9,7 +9,7 @@
  * Copyright Gurock Software GmbH. See license.md for details.
  */
  
-package hilleauto.Jira;
+package hillelauto.Jira.reporting;
 
 import java.net.URL;
 import java.net.HttpURLConnection;
@@ -20,6 +20,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.BufferedReader;
 import java.io.UnsupportedEncodingException;
+
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 

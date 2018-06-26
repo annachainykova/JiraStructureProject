@@ -1,7 +1,7 @@
-package hilleauto.Jira.Pages;
+package hillelauto.Jira.Pages;
 
-import hilleauto.Jira.JiraVars;
-import hilleauto.Tools;
+import hillelauto.Jira.JiraVars;
+import hillelauto.Tools;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

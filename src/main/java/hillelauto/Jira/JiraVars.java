@@ -1,6 +1,6 @@
-package hilleauto.Jira;
+package hillelauto.Jira;
 
-import hilleauto.Tools;
+import hillelauto.Tools;
 
 public interface JiraVars {
     public static final String baseURL = "http://jira.hillel.it:8080/";
