@@ -1,7 +1,7 @@
 <suite name="Sanity Suite" verbose="0" group-by-instances="true">
     <listeners>
-        <listener class-name="hillelauto.Jira.listeners.RetryListener"/>
-        <listener class-name="hillelauto.Jira.listeners.TestListener"/>
+        <listener class-name="hillelauto.listeners.RetryListener"/>
+        <listener class-name="hillelauto.listeners.TestListener"/>
     </listeners>
     <test name="Sanity" verbose="1" group-by-instances="true">
          <parameter name="testRailProjectId" value="1"/>

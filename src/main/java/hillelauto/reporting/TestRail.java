@@ -1,4 +1,4 @@
-package hillelauto.Jira.reporting;
+package hillelauto.reporting;
 
 import org.json.simple.JSONObject;
 

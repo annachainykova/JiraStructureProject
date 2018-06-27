@@ -1,7 +1,5 @@
 package hillelauto;
 
-import hillelauto.Jira.reporting.APIClient;
-import hillelauto.Jira.JiraVars;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverTestBase {
     protected WebDriver driver;
-    protected APIClient client;
+    //protected APIClient client;
 
     static{
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
@@ -29,12 +27,13 @@ public class WebDriverTestBase {
     @AfterTest(alwaysRun = true)
     public void finish() {
         driver.close();
+
     }
 
-    @BeforeTest (alwaysRun = true)
-    public void setUpTestRail() {
-        client = new APIClient(JiraVars.URLTestRail);
-        client.setUser(JiraVars.usernameTestRail);
-        client.setPassword(JiraVars.passwordTestRail);
-    }
+//    @BeforeTest (alwaysRun = true)
+//    public void setUpTestRail() {
+//        client = new APIClient(JiraVars.URLTestRail);
+//        client.setUser(JiraVars.usernameTestRail);
+//        client.setPassword(JiraVars.passwordTestRail);
+//    }
 }

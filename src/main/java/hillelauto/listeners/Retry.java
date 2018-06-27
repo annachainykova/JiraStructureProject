@@ -1,4 +1,4 @@
-package hillelauto.Jira.listeners;
+package hillelauto.listeners;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;

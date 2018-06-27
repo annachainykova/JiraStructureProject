@@ -9,7 +9,7 @@
  * Copyright Gurock Software GmbH. See license.md for details.
  */
 
-package hillelauto.Jira.reporting;
+package hillelauto.reporting;
  
 public class APIException extends Exception
 {

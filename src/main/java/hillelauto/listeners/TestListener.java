@@ -1,6 +1,6 @@
-package hillelauto.Jira.listeners;
+package hillelauto.listeners;
 
-import hillelauto.Jira.reporting.TestRail;
+import hillelauto.reporting.TestRail;
 import hillelauto.Tools;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -25,8 +25,8 @@ public class TestListener implements ITestListener{
     }
 
     private void reportToTestRail(HashSet<ITestResult> results) {
-        String baseURL = "https://hillelrob.testrail.io/";
-        String projectID = "1";
+        String baseURL = "https://hillelmanold.testrail.io/";
+        String projectID = "7";
         String runPrefix = "Jira";
         String username = "rvalek@intersog.com";
         String password = "hillel";
