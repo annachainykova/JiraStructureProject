@@ -1,9 +1,10 @@
-package hillelauto;
+package hillelauto.Jira;
 import hillelauto.Jira.Pages.AdminPanelPage;
 import hillelauto.Jira.Pages.IssuePage;
 import hillelauto.Jira.Pages.LoginPage;
 import hillelauto.Jira.Pages.MainPage;
 
+import hillelauto.WebDriverTestBase;
 import org.openqa.selenium.support.PageFactory;
 
 import org.testng.annotations.BeforeClass;

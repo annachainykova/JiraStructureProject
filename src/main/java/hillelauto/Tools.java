@@ -15,8 +15,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.List;
 
 
 public class Tools {
@@ -60,5 +61,9 @@ public class Tools {
         Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
         BufferedImage capture = new Robot().createScreenCapture(screenRect);
         ImageIO.write(capture, "png", new File(fileName));
+    }
+
+    public static List<String> lineOfFile(String path ) throws IOException {
+        return  Files.readAllLines(Paths.get(path));
     }
 }
