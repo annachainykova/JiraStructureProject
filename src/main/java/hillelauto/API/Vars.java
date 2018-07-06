@@ -5,11 +5,6 @@ public class Vars {
     public static final Integer port = 20007;
     public static final String basePath = "/api/users";
 
-    public static final String response = "";
-
-    public static final String CRUD = "";
-    public static final String admins = host + "/refreshAdmins";
-
     public static final String baseBody = "[{" +
             "\"id\":\"1\"," +
             "\"name\":\"James Logan Howlett\"," +
@@ -25,14 +20,5 @@ public class Vars {
             "\"phone\":\"+380670000001\"," +
             "\"role\":\"Support\"," +
             "\"location\":\"Kiev\"}]";
-
-    public static final String createUser = "{" +
-                    "\"name\":\"James Logan Howlett\"," +
-                    "\"phone\":\"+380670000003\"}";
-
-
-
-
-
 
 }
