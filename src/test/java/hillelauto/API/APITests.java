@@ -10,8 +10,7 @@ import java.util.ArrayList;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasKey;
+import static org.hamcrest.Matchers.*;
 
 
 //to do
@@ -34,10 +33,11 @@ public class APITests {
     public void startServerState() {
         given().
                 contentType("application/json").
-        expect().
-                body(equalTo(Vars.baseBody)).
         when().
-                get(Vars.basePath);
+                get(Vars.basePath).
+        then().
+                assertThat().contentType("application/json").
+                assertThat().body("id", hasItem("1"));
     }
 
 
@@ -63,9 +63,9 @@ public class APITests {
                         post(Vars.basePath).
                 then().
                         assertThat().statusCode(200).
-                                assertThat().contentType(ContentType.JSON).
-                                assertThat().body("$", hasKey("id")).
-                                assertThat().body("role", equalTo("Student")).
+                        assertThat().contentType(ContentType.JSON).
+                        assertThat().body("$", hasKey("id")).
+                        assertThat().body("role", equalTo("Student")).
                 extract().
                         path("id");
 
@@ -75,6 +75,7 @@ public class APITests {
                 when().
                         get(Vars.basePath).
                 then().
+                        contentType("application/json").
                 extract().
                         path("id");
 
@@ -135,13 +136,9 @@ public class APITests {
                         post(Vars.basePath).
                 then().
                         assertThat().statusCode(200).
-                        // 9. Во всех ответах должен присутстовать заголовок Content-Type application/json
-                                assertThat().contentType(ContentType.JSON).
-                        //6. Создание нового пользователя было реализовано методом POST на winow.crudURL,
-                        // в ответ приходил id новой созданной сущности
-                                assertThat().body("$", hasKey("id")).
-                        // 6. Не передавая роль создаеться студент
-                                assertThat().body("role", equalTo("Administrator")).
+                        assertThat().contentType(ContentType.JSON).
+                        assertThat().body("$", hasKey("id")).
+                        assertThat().body("role", equalTo("Administrator")).
                 extract().
                         path("id");
 
@@ -186,7 +183,7 @@ public class APITests {
         Assert.assertTrue(allNames.contains("Anna Chainykova"));
     }
 
-    @Test(description = "Requirement 6. Create user with Invalid role")
+    @Test(description = "Requirement 12. Create user with Invalid role")
     public void createUserInvalidRole() {
         given().
                 contentType("application/json").
@@ -194,8 +191,7 @@ public class APITests {
         when().
                 post(Vars.basePath).
         then().
-                assertThat().statusCode(401).
-                assertThat().contentType(ContentType.JSON);
+                assertThat().statusCode(401);
     }
 
     @Test(description = "Requirement 13. Edit invalid user")
@@ -206,8 +202,7 @@ public class APITests {
         when().
                 put(Vars.basePath + "/" + "invalidID").
         then().
-                assertThat().statusCode(404).
-                assertThat().contentType(ContentType.JSON);
+                assertThat().statusCode(404);
     }
 
 
