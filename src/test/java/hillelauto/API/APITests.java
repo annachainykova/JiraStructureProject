@@ -15,6 +15,7 @@ import static org.hamcrest.Matchers.*;
 
 //to do
 // 3. Вынести отдельно метод GET user list с созданием array на нужный параметр
+// Первый тест. Разобраться с стринг jsonS
 
 
 public class APITests {
