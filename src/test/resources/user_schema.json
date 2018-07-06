@@ -1,0 +1,48 @@
+﻿{
+  "$id": "http://example.com/example.json",
+  "type": "array",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "items": {
+    "$id": "http://example.com/example.json/items",
+    "type": "object",
+    "properties": {
+      "id": {
+        "$id": "http://example.com/example.json/items/properties/id",
+        "type": "string",
+        "title": "The Id Schema ",
+        "default": "",
+        "examples": [
+          "1"
+        ]
+      },
+      "name": {
+        "$id": "http://example.com/example.json/items/properties/name",
+        "type": "string",
+        "title": "The Name Schema ",
+        "default": "",
+        "examples": [
+          "James Logan Howlett"
+        ]
+      },
+      "phone": {
+        "$id": "http://example.com/example.json/items/properties/phone",
+        "type": "string",
+        "title": "The Phone Schema ",
+        "default": "",
+        "examples": [
+          "+380670000003"
+        ]
+      },
+      "role": {
+        "$id": "http://example.com/example.json/items/properties/role",
+        "type": "string",
+        "title": "The Role Schema ",
+        "default": "",
+        "examples": [
+          "Administrator"
+        ]
+      }
+    }
+  }
+}
