@@ -6,16 +6,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.*;
-
-
-//to do
-// 3. Вынести отдельно метод GET user list с созданием array на нужный параметр
-// Первый тест. Разобраться с стринг jsonS
 
 
 public class APITests {
@@ -38,7 +31,8 @@ public class APITests {
                 get(Vars.basePath).
         then().
                 assertThat().contentType("application/json").
-                assertThat().body("id", hasItem("1"));
+                assertThat().body("id", hasItem("1")).
+                assertThat().body(equalTo(APIjsonObjects.startServer()));
     }
 
 
@@ -70,17 +64,7 @@ public class APITests {
                 extract().
                         path("id");
 
-        ArrayList<String> allID =
-                given().
-                        contentType(ContentType.JSON).
-                when().
-                        get(Vars.basePath).
-                then().
-                        contentType("application/json").
-                extract().
-                        path("id");
-
-        Assert.assertTrue(allID.contains(studentID));
+        Assert.assertTrue(API.specificData("id").contains(studentID));
 
     }
 
@@ -95,16 +79,7 @@ public class APITests {
                 assertThat().statusCode(200).
                 assertThat().contentType(ContentType.JSON);
 
-        ArrayList<String> allNames =
-                given().
-                        contentType(ContentType.JSON).
-                when().
-                        get(Vars.basePath).
-                then().
-                extract().
-                        path("name");
-
-        Assert.assertTrue(allNames.contains("Chainykova Anna"));
+        Assert.assertTrue(API.specificData("name").contains("Chainykova Anna"));
     }
 
     @Test(description = "Requirement 7 - Delete user", dependsOnMethods = "createUser", groups = "Sanity")
@@ -117,14 +92,7 @@ public class APITests {
                 assertThat().statusCode(204).
                 assertThat().contentType("application/json");
 
-        ArrayList<String> allID = given().
-                contentType(ContentType.JSON).
-                when().
-                get(Vars.basePath).
-                then().
-                extract().path("id");
-
-        Assert.assertFalse(allID.contains(studentID));
+        Assert.assertFalse(API.specificData("id").contains(studentID));
     }
 
     @Test(description = "Requirement 6. Create administrator", groups = "Sanity")
@@ -143,16 +111,8 @@ public class APITests {
                 extract().
                         path("id");
 
-        ArrayList<String> allID =
-                given().
-                        contentType(ContentType.JSON).
-                when().
-                        get(Vars.basePath).
-                then().
-                extract().
-                        path("id");
 
-        Assert.assertTrue(allID.contains(adminID));
+        Assert.assertTrue(API.specificData("id").contains(adminID));
     }
 
     @Test(description = "Requirement 5 - Edit admin", dependsOnMethods = "createAdmin", groups = "Sanity")
@@ -172,16 +132,8 @@ public class APITests {
         when().
                 get("/refreshAdmins");
 
-        ArrayList<String> allNames =
-                given().
-                        contentType(ContentType.JSON).
-                when().
-                        get(Vars.basePath).
-                then().
-                extract().
-                        path("name");
 
-        Assert.assertTrue(allNames.contains("Anna Chainykova"));
+        Assert.assertTrue(API.specificData("name").contains("Anna Chainykova"));
     }
 
     @Test(description = "Requirement 12. Create user with Invalid role")

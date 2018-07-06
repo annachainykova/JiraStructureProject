@@ -3,9 +3,6 @@ package hillelauto.Facebook;
 import hillelauto.Facebook.Pages.LoginPage;
 import hillelauto.Facebook.Pages.ProfilePage;
 import hillelauto.Tools;
-import hillelauto.WebDriverTestBase;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -18,56 +15,48 @@ import java.util.regex.Pattern;
 
 import static io.restassured.RestAssured.given;
 
-public class FacebookTests extends WebDriverTestBase{
+public class FacebookTests{
     private LoginPage loginPage;
     private ProfilePage profilePage;
 
 
-    @BeforeClass(alwaysRun = true)
-    public void setPages() {
-        loginPage = PageFactory.initElements(driver, LoginPage.class);
-        profilePage = PageFactory.initElements(driver, ProfilePage.class);
-
-    }
     @Test
     public void login() {
         loginPage.login();
     }
 
-    @Test (dependsOnMethods = "login")
-    public void fac() throws InterruptedException, IOException {
-        List <String> lines = Tools.lineOfFile("new.csv");
-        ArrayList <String> newLines = new ArrayList<>();
-        for (String line : lines) {
-            newLines.add(profilePage.getId(line));
-        }
-        Files.write(Paths.get("newfile.txt"), newLines);
-
-    }
-
     @Test
-    public void api() {
-        String bodyresp = given().get("https://www.facebook.com/profile.php?id=100016584043282")
+    public String api(String path) {
+        String bodyresp = given().get(path)
                 .then()
-                .extract().body().htmlPath().prettyPrint().toString();
+                .extract().body().htmlPath().prettify().toString();
         String patternString = ".*fb://profile/(\\d+)\".*";
-
+        System.out.println(bodyresp);
         Pattern pattern = Pattern.compile(patternString);
-
         Matcher matcher = pattern.matcher(bodyresp);
         if(matcher.find()){
             String ID = matcher.group(1);
-            System.out.println(ID);
+            return ID;
+        } else {
+            return "No such user";
         }
     }
 
     @Test
-    public void apit() throws IOException, InterruptedException {
+    public void apit() throws IOException {
         List <String> lines = Tools.lineOfFile("new.csv");
         ArrayList <String> newLines = new ArrayList<>();
+        String patternString = ".*profile.php?id=(\\d+)&.*";
+        Pattern pattern = Pattern.compile(patternString);
         for (String line : lines) {
-            newLines.add(profilePage.getIDByAPI(line));
+            Matcher matcher = pattern.matcher(line);
+            if (matcher.find()) {
+                newLines.add(line.split(",")[0] + "," + matcher.group(1));
+            } else {
+                newLines.add(line.split(",")[0] + api(line.split(",")[1]));
+            }
         }
         Files.write(Paths.get("newfile.txt"), newLines);
     }
 }
+
