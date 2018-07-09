@@ -23,14 +23,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.20.1</version>
-                    <configuration>
-                        <!--<systemPropertyVariables>-->
-                            <!--&lt;!&ndash; Following properties can be passed when running maven build like this: -Dcp1=something -Dcp2="something else". &ndash;&gt;-->
-                            <!--&lt;!&ndash; Then these properties can be accessed from Java like this: System.getProperty("hillel.customProperty1"); // returns "something" &ndash;&gt;-->
-                            <!--<hillel.customProperty1>${cp1}</hillel.customProperty1>-->
-                            <!--<hillel.customProperty2>${cp2}</hillel.customProperty2>-->
-                        <!--</systemPropertyVariables>-->
-                    </configuration>
                 </plugin>
             </plugins>
         </build>
@@ -80,6 +72,13 @@
                 <artifactId>json-schema-validator</artifactId>
                 <version>3.1.0</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.5</version>
+            </dependency>
+
 
 
         </dependencies>

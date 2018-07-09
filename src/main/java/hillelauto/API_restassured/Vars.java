@@ -1,4 +1,4 @@
-package hillelauto.API;
+package hillelauto.API_restassured;
 
 public class Vars {
     public static final String host = "http://localhost";

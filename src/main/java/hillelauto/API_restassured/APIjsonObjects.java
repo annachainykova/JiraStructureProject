@@ -1,4 +1,4 @@
-package hillelauto.API;
+package hillelauto.API_restassured;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

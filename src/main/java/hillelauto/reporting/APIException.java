@@ -1,5 +1,5 @@
 /**
- * TestRail API binding for Java (API v2, available since TestRail 3.0)
+ * TestRail API_restassured binding for Java (API_restassured v2, available since TestRail 3.0)
  *
  * Learn more:
  *

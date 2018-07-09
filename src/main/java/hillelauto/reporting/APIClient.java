@@ -1,5 +1,5 @@
 /**
- * TestRail API binding for Java (API v2, available since TestRail 3.0)
+ * TestRail API_restassured binding for Java (API_restassured v2, available since TestRail 3.0)
  *
  * Learn more:
  *
@@ -43,7 +43,7 @@ public class APIClient
 	/**
 	 * Get/Set User
 	 *
-	 * Returns/sets the user used for authenticating the API requests.
+	 * Returns/sets the user used for authenticating the API_restassured requests.
 	 */
 	public String getUser()
 	{
@@ -58,7 +58,7 @@ public class APIClient
 	/**
 	 * Get/Set Password
 	 *
-	 * Returns/sets the password used for authenticating the API requests.
+	 * Returns/sets the password used for authenticating the API_restassured requests.
 	 */
 	public String getPassword()
 	{
@@ -73,17 +73,17 @@ public class APIClient
 	/**
 	 * Send Get
 	 *
-	 * Issues a GET request (read) against the API and returns the result
+	 * Issues a GET request (read) against the API_restassured and returns the result
 	 * (as Object, see below).
 	 *
 	 * Arguments:
 	 *
-	 * uri                  The API method to call including parameters
+	 * uri                  The API_restassured method to call including parameters
 	 *                      (e.g. get_case/1)
 	 *
 	 * Returns the parsed JSON response as standard object which can
 	 * either be an instance of JSONObject or JSONArray (depending on the
-	 * API method). In most cases, this returns a JSONObject instance which
+	 * API_restassured method). In most cases, this returns a JSONObject instance which
 	 * is basically the same as java.util.Map.
 	 */
 	public Object sendGet(String uri)
@@ -95,19 +95,19 @@ public class APIClient
 	/**
 	 * Send POST
 	 *
-	 * Issues a POST request (write) against the API and returns the result
+	 * Issues a POST request (write) against the API_restassured and returns the result
 	 * (as Object, see below).
 	 *
 	 * Arguments:
 	 *
-	 * uri                  The API method to call including parameters
+	 * uri                  The API_restassured method to call including parameters
 	 *                      (e.g. add_case/1)
 	 * data                 The data to submit as part of the request (e.g.,
 	 *                      a map)
 	 *
 	 * Returns the parsed JSON response as standard object which can
 	 * either be an instance of JSONObject or JSONArray (depending on the
-	 * API method). In most cases, this returns a JSONObject instance which
+	 * API_restassured method). In most cases, this returns a JSONObject instance which
 	 * is basically the same as java.util.Map.	 
 	 */
 	public Object sendPost(String uri, Object data)
@@ -158,7 +158,7 @@ public class APIClient
 			if (istream == null)
 			{
 				throw new APIException(
-					"TestRail API return HTTP " + status + 
+					"TestRail API_restassured return HTTP " + status +
 					" (No additional error message received)"
 				);
 			}
@@ -215,7 +215,7 @@ public class APIClient
 			}
 			
 			throw new APIException(
-				"TestRail API returned HTTP " + status +
+				"TestRail API_restassured returned HTTP " + status +
 				"(" + error + ")"
 			);
 		}

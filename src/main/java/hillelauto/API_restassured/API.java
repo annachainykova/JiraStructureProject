@@ -1,4 +1,4 @@
-package hillelauto.API;
+package hillelauto.API_restassured;
 
 import io.restassured.http.ContentType;
 

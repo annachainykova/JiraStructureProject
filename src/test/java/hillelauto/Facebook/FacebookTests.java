@@ -27,13 +27,15 @@ public class FacebookTests{
 
     @Test
     public String api(String path) {
-        String bodyresp = given().get(path)
-                .then()
-                .extract().body().htmlPath().prettify().toString();
+        String response = given().
+            when().
+                get(path)
+            .then()
+                .extract().response().body().asString();
         String patternString = ".*fb://profile/(\\d+)\".*";
-        System.out.println(bodyresp);
+        //System.out.println(response);
         Pattern pattern = Pattern.compile(patternString);
-        Matcher matcher = pattern.matcher(bodyresp);
+        Matcher matcher = pattern.matcher(response);
         if(matcher.find()){
             String ID = matcher.group(1);
             return ID;
@@ -46,7 +48,7 @@ public class FacebookTests{
     public void apit() throws IOException {
         List <String> lines = Tools.lineOfFile("new.csv");
         ArrayList <String> newLines = new ArrayList<>();
-        String patternString = ".*profile.php?id=(\\d+)&.*";
+        String patternString = ".*profile.php\\?id=(\\d+)&.*";
         Pattern pattern = Pattern.compile(patternString);
         for (String line : lines) {
             Matcher matcher = pattern.matcher(line);
