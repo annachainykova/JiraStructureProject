@@ -1,8 +1,13 @@
 package hillelauto.Facebook;
 
-import hillelauto.Facebook.Pages.LoginPage;
-import hillelauto.Facebook.Pages.ProfilePage;
 import hillelauto.Tools;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -13,27 +18,29 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static io.restassured.RestAssured.given;
-
 public class FacebookTests{
-    private LoginPage loginPage;
-    private ProfilePage profilePage;
+
+    private static CloseableHttpClient httpclient = HttpClients.createDefault();
+    private static RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(5000).setConnectTimeout(5000).setConnectionRequestTimeout(5000).build();
 
 
-    @Test
-    public void login() {
-        loginPage.login();
+    public static String sendGet(String url) throws IOException {
+        HttpGet request = new HttpGet(url);
+        request.setConfig(requestConfig);
+
+        HttpResponse response = httpclient.execute(request);
+
+        HttpEntity entity = response.getEntity();
+
+        return entity != null ? EntityUtils.toString(entity) : "No response data.";
+
     }
 
-    @Test
-    public String api(String path) {
-        String response = given().
-            when().
-                get(path)
-            .then()
-                .extract().response().body().asString();
+
+    public String getID(String path) throws IOException {
+        String response = sendGet(path);
         String patternString = ".*fb://profile/(\\d+)\".*";
-        //System.out.println(response);
+        System.out.println(response);
         Pattern pattern = Pattern.compile(patternString);
         Matcher matcher = pattern.matcher(response);
         if(matcher.find()){
@@ -45,7 +52,7 @@ public class FacebookTests{
     }
 
     @Test
-    public void apit() throws IOException {
+    public void namesWithID() throws IOException {
         List <String> lines = Tools.lineOfFile("new.csv");
         ArrayList <String> newLines = new ArrayList<>();
         String patternString = ".*profile.php\\?id=(\\d+)&.*";
@@ -55,7 +62,7 @@ public class FacebookTests{
             if (matcher.find()) {
                 newLines.add(line.split(",")[0] + "," + matcher.group(1));
             } else {
-                newLines.add(line.split(",")[0] + api(line.split(",")[1]));
+                newLines.add(line.split(",")[0] + getID(line.split(",")[1]));
             }
         }
         Files.write(Paths.get("newfile.txt"), newLines);

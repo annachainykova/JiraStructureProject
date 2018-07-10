@@ -36,7 +36,7 @@ public class Requests {
         return send(new HttpGet(url), null);
     }
 
-    public static String[] send(HttpRequestBase request, StringEntity body) throws IOException {
+    private static String[] send(HttpRequestBase request, StringEntity body) throws IOException {
         String method_name = Thread.currentThread().getStackTrace()[2].getMethodName();
         request.setConfig(requestConfig);
 
