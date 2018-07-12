@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="XML" verbose="0" group-by-instances="true">
+    <test name="XML">
+        <classes>
+            <class name="hillelauto.XMLBeforeAfter.Tests"></class>
+        </classes>
+    </test>
+    <packages>
+            <package name="hillelauto.XMLBeforeAfter"/>
+    </packages>
+</suite>
+
+        <!--mvn clean test -Dsurefire.suiteXmlFiles=src\\test\\resources\\issueRun.xml -->
