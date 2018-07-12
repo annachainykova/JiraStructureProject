@@ -40,7 +40,6 @@
                 <version>6.14.3</version>
                 <scope>test</scope>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-java</artifactId>
@@ -70,11 +69,6 @@
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
             <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>4.5.5</version>
-            </dependency>
-            <dependency>
                 <groupId>org.testng</groupId>
                 <artifactId>testng</artifactId>
                 <version>6.14.3</version>
@@ -84,7 +78,6 @@
                 <artifactId>rest-assured</artifactId>
                 <version>RELEASE</version>
             </dependency>
-
 
         </dependencies>
 
