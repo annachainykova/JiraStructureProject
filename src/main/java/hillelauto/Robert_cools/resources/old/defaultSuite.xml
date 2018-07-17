@@ -1,0 +1,154 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Full Test Without Failure Logins" verbose="1" preserve-order="true" group-by-instances="true">
+    <listeners>
+        <listener class-name="Utils.Listeners.RetryListener"/>
+        <listener class-name="Utils.Listeners.TestListener"/>
+    </listeners>
+    <test name="Amazon IAM Login Test" verbose="1" preserve-order="true" group-by-instances="true">
+        <groups>
+            <run>
+                <include name="IAMSuccessLoginGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.AWSAmazon.AmazonLoginTestCases"/>
+        </classes>
+    </test>
+    <test name="Amazon Test Cases" verbose="1" preserve-order="true" group-by-instances="true">
+        <groups>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <exclude name="IAMSuccessLoginGroup"/>
+                <include name="SuccessLoginGroup"/>
+                <include name="AmazonIAMGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.AWSAmazon.AmazonLoginTestCases"/>
+            <class name="Services.AWSAmazon.AmazonIAMTestCases"/>
+        </classes>
+    </test>
+    <test name="Box Test Cases" verbose="1" preserve-order="true" group-by-instances="true">
+        <groups>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <include name="SuccessLoginGroup"/>
+                <include name="BoxFilesGroup"/>
+                <include name="BoxUsersGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.Box.BoxLoginTestCases"/>
+            <class name="Services.Box.BoxFilesTestCases"/>
+            <class name="Services.Box.BoxUsersTestCases"/>
+        </classes>
+    </test>
+    <test name="DropBox Test Cases" verbose="1" preserve-order="true" group-by-instances="true">
+        <groups>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <include name="DropBoxLoginGroup"/>
+                <include name="SuccessLoginGroup"/>
+                <include name="DBFilesGroup"/>
+                <include name="DBMembersGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.DropBox.DropBoxLoginTestCases"/>
+            <class name="Services.DropBox.DBFilesTestCases"/>
+            <class name="Services.DropBox.DBMembersTestCases"/>
+        </classes>
+    </test>
+    <test name="Google Test Cases" verbose="1" preserve-order="true" group-by-instances="true">
+        <groups>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <include name="SuccessLoginGroup"/>
+                <include name="GoogleDriveGroup"/>
+                <include name="GmailGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.Google.GoogleLoginTestCases"/>
+            <class name="Services.Google.GoogleDriveTestCases"/>
+            <class name="Services.Google.GmailTestCases"/>
+        </classes>
+    </test>
+    <test name="O365 Test Cases" verbose="1" preserve-order="true" group-by-instances="true">
+        <groups>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <include name="SuccessLoginGroup"/>
+                <include name="OneDriveGroup"/>
+                <include name="OutlookGroup"/>
+                <include name="O365AdminGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.O365.O365LoginTestCases"/>
+            <class name="Services.O365.OneDriveTestCases"/>
+            <class name="Services.O365.OutlookTestCases"/>
+            <class name="Services.O365.AdminPanelTestCases"/>
+        </classes>
+    </test>
+    <test name="SF Classic tests" verbose="1" preserve-order="true" group-by-instances="true">
+        <groups>
+            <run>
+                <include name="SalesforceLoginGroup"/>
+                <exclude name="FailureLoginGroup"/>
+                <include name="ClassicSuccessLoginGroup"/>
+                <exclude name="LESuccessLoginGroup"/>
+                <include name="SFAccountsGroup"/>
+                <include name="SFCasesGroup"/>
+                <include name="SFContactsGroup"/>
+                <include name="SFLeadsGroup"/>
+                <include name="SFOpportunitiesGroup"/>
+                <include name="SFReportsGroup"/>
+                <include name="SFFilesGroup"/>
+                <include name="Classic"/>
+                <exclude name="Lightning"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.Salesforce.SFLoginTestCases"/>
+            <class name="Services.Salesforce.SFAccountsTestCases"/>
+            <class name="Services.Salesforce.SFCasesTestCases"/>
+            <class name="Services.Salesforce.SFContactsTestCases"/>
+            <class name="Services.Salesforce.SFLeadsTestCases"/>
+            <class name="Services.Salesforce.SFOpportunitiesTestCases"/>
+            <class name="Services.Salesforce.SFReportsTestCases"/>
+            <class name="Services.Salesforce.SFFilesTestCases"/>
+        </classes>
+    </test>
+    <test name="SF Lightning tests" verbose="1" preserve-order="true" group-by-instances="true">
+        <groups>
+            <run>
+                <include name="SalesforceLoginGroup"/>
+                <exclude name="FailureLoginGroup"/>
+                <exclude name="ClassicSuccessLoginGroup"/>
+                <include name="LESuccessLoginGroup"/>
+                <include name="SFAccountsGroup"/>
+                <include name="SFCasesGroup"/>
+                <include name="SFContactsGroup"/>
+                <include name="SFLeadsGroup"/>
+                <include name="SFOpportunitiesGroup"/>
+                <include name="SFReportsGroup"/>
+                <include name="SFFilesGroup"/>
+                <include name="SFUsersGroup"/>
+                <exclude name="Classic"/>
+                <include name="Lightning"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.Salesforce.SFLoginTestCases"/>
+            <class name="Services.Salesforce.SFAccountsTestCases"/>
+            <class name="Services.Salesforce.SFCasesTestCases"/>
+            <class name="Services.Salesforce.SFContactsTestCases"/>
+            <class name="Services.Salesforce.SFLeadsTestCases"/>
+            <class name="Services.Salesforce.SFOpportunitiesTestCases"/>
+            <class name="Services.Salesforce.SFReportsTestCases"/>
+            <class name="Services.Salesforce.SFFilesTestCases"/>
+            <class name="Services.Salesforce.SFUsersTestCases"/>
+        </classes>
+    </test>
+</suite>

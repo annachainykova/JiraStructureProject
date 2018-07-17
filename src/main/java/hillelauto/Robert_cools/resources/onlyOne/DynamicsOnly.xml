@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Dynamics Tests" verbose="1" group-by-instances="true">
+    <listeners>
+        <listener class-name="Utils.Listeners.RetryListener"/>
+        <listener class-name="Utils.Listeners.TestListener"/>
+    </listeners>
+    <test name="DynamicsTest" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.Dynamics.DynamicsLoginTestCases"/>
+            <class name="Services.Dynamics.DynamicsSalesTestCases"/>
+            <class name="Services.Dynamics.DynamicsServiceTestCases"/>
+        </classes>
+    </test>
+</suite>

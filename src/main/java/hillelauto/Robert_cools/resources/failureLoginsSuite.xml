@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Failure Logins Suite" verbose="0" group-by-instances="true">
+    <listeners>
+        <listener class-name="Utils.Listeners.RetryListener"/>
+        <listener class-name="Utils.Listeners.TestListener"/>
+    </listeners>
+    <test name="Failure Logins" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="Atlassian.*"/>
+                <exclude name="LoginGroupAWS*"/>
+                <exclude name="LoginGroupIAM"/>
+                <exclude name=".*SuccessLoginGroup.*"/>
+                <include name=".*LoginGroup"/>
+                <include name="FailureLoginGroup"/>
+                <include name="Services"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="Services.*"/>
+        </packages>
+    </test>
+</suite>

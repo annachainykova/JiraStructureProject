@@ -1,0 +1,35 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Salesforce Lightning Tests" verbose="1" group-by-instances="true">
+    <listeners>
+        <listener class-name="Utils.Listeners.RetryListener"/>
+        <listener class-name="Utils.Listeners.TestListener"/>
+    </listeners>
+    <test name="SF Lightning tests" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <exclude name="BrokenComponent"/>
+                <exclude name="SFClassic"/>
+                <include name="SFLightning"/>
+                <include name="SFLoginGroup"/>
+                <include name="Services"/>
+            </run>
+        </groups>
+        <classes>
+        <class name="Services.Salesforce.SFLoginTestCases"/>
+        <class name="Services.Salesforce.SFAccountsTestCases"/>
+        <class name="Services.Salesforce.SFCasesTestCases"/>
+        <class name="Services.Salesforce.SFContactsTestCases"/>
+        <class name="Services.Salesforce.SFLeadsTestCases"/>
+        <class name="Services.Salesforce.SFOpportunitiesTestCases"/>
+        <class name="Services.Salesforce.SFReportsTestCases"/>
+        <class name="Services.Salesforce.SFFilesTestCases"/>
+        <class name="Services.Salesforce.SFUsersTestCases"/>
+        <class name="Services.Salesforce.SFSetupTestCases"/>
+        </classes>
+        <!--<packages>-->
+            <!--<package name="Services.Salesforce"/>-->
+        <!--</packages>-->
+    </test>
+</suite>

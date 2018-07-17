@@ -55,12 +55,12 @@ public class Tests {
         System.out.println("It's Other test ");
     }
 
-    @Test(groups = {"Other"})
+    @Test(groups = {"Other"}, dependsOnMethods = "testOther")
     void testOther1() {
         System.out.println("It's Other1 test ");
     }
 
-    @Test(groups = {"Other"})
+    @Test(groups = {"Other"}, dependsOnMethods = "testOther1")
     void testOther3() {
         System.out.println("It's Other3 test ");
     }

@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Atlassian Tests" verbose="1" group-by-instances="true">
+    <listeners>
+        <listener class-name="Utils.Listeners.RetryListener"/>
+        <listener class-name="Utils.Listeners.TestListener"/>
+    </listeners>
+    <test name="AtlassianTests" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.Atlassian.AtlassianLoginTestCase"/>
+            <class name="Services.Atlassian.AtlassianJiraProjectTestCase"/>
+            <class name="Services.Atlassian.AtlassianJiraSettingsTestCase"/>
+            <class name="Services.Atlassian.AtlassianConfluenceProjectTestCase"/>
+            <class name="Services.Atlassian.AtlassianConfluenceSettingsTestCase"/>
+        </classes>
+        <!--<packages>-->
+            <!--<package name="Services.Atlassian"/>-->
+        <!--</packages>-->
+    </test>
+</suite>

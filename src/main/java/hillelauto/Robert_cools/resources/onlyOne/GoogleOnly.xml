@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Google Tests" verbose="1" group-by-instances="true">
+    <listeners>
+        <listener class-name="Utils.Listeners.RetryListener"/>
+        <listener class-name="Utils.Listeners.TestListener"/>
+    </listeners>
+    <test name="GoogleTest" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.Google.GoogleLoginTestCases"/>
+            <class name="Services.Google.GoogleDriveTestCases"/>
+            <class name="Services.Google.GmailTestCases"/>
+        </classes>
+        <!--<packages>-->
+            <!--<package name="Services.Google"/>-->
+        <!--</packages>-->
+    </test>
+</suite>

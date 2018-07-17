@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="O365 Tests" verbose="1" group-by-instances="true">
+    <listeners>
+        <listener class-name="Utils.Listeners.RetryListener"/>
+        <listener class-name="Utils.Listeners.TestListener"/>
+    </listeners>
+    <test name="Office365Test" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.O365.O365LoginTestCases"/>
+            <class name="Services.O365.OneDriveTestCases"/>
+            <class name="Services.O365.OutlookTestCases"/>
+            <class name="Services.O365.AdminPanelTestCases"/>
+            <class name="Services.O365.OneDriveAdminTestCases"/>
+            <class name="Services.O365.SecurityComplianceTestCases"/>
+        </classes>
+        <!--<packages>-->
+            <!--<package name="Services.O365"/>-->
+        <!--</packages>-->
+    </test>
+</suite>

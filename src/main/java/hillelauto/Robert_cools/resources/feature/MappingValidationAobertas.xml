@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Full Mapping Validation Tests" verbose="1">
+    <parameter name="SkyfenceName" value="aobertas"/>
+    <test name="MappingValidationTest" verbose="1">
+        <groups>
+            <run>
+                <exclude name="Services"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Utils.validation.RunMappingValidationTest"/>
+        </classes>
+    </test>
+</suite>

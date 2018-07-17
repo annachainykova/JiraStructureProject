@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Azure Portal Tests" verbose="1" group-by-instances="true">
+    <listeners>
+        <listener class-name="Utils.Listeners.RetryListener"/>
+        <listener class-name="Utils.Listeners.TestListener"/>
+    </listeners>
+    <test name="AzureTests" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <exclude name="Broken"/>
+                <include name="Services"/>
+                <include name="Azure.*?Group"/>
+             </run>
+        </groups>
+        <classes>
+        <class name="Services.O365Azure.AzureLoginTestCases"/>
+        <class name="Services.O365Azure.AzureUserTestCase"/>
+        <class name="Services.O365Azure.AzureResourceGroupsTestCases"/>
+        <class name="Services.O365Azure.AzureNetworkingTestCases"/>
+        <class name="Services.O365Azure.AzureStorageTestCases"/>
+        <class name="Services.O365Azure.AzureComputeTestCases"/>
+        </classes>
+        <!--<packages>-->
+            <!--<package name="Services.O365Azure"/>-->
+        <!--</packages>-->
+    </test>
+</suite>

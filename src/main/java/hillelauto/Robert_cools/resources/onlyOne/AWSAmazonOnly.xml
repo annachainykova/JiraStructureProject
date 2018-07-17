@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AWS Amazon Tests" verbose="1" group-by-instances="true">
+    <listeners>
+        <listener class-name="Utils.Listeners.RetryListener"/>
+        <listener class-name="Utils.Listeners.TestListener"/>
+    </listeners>
+    <test name="AWS" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <exclude name="AmazonInstancesGroup"/>
+                <exclude name="IAMSuccessLoginGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.AWSAmazon.AmazonLoginTestCases"/>
+            <class name="Services.AWSAmazon.AmazonIAMTestCases"/>
+            <class name="Services.AWSAmazon.AmazonNetworkingTestCases"/>
+            <class name="Services.AWSAmazon.AmazonS3TestCases"/>
+        </classes>
+        <!--<packages>-->
+            <!--<package name="Services.AWSAmazon"/>-->
+        <!--</packages>-->
+    </test>
+</suite>

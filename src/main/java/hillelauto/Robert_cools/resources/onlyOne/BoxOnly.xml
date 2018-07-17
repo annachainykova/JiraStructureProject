@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Box Tests" verbose="1" group-by-instances="true">
+    <listeners>
+        <listener class-name="Utils.Listeners.RetryListener"/>
+        <listener class-name="Utils.Listeners.TestListener"/>
+    </listeners>
+    <test name="BoxTest" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <exclude name="BoxUsersGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Services.Box.BoxLoginTestCases"/>
+            <class name="Services.Box.BoxFilesTestCases"/>
+            <!--<class name="Services.Box.BoxUsersTestCases"/>-->
+        </classes>
+        <!--<packages>-->
+            <!--<package name="Services.Box"/>-->
+        <!--</packages>-->
+    </test>
+</suite>

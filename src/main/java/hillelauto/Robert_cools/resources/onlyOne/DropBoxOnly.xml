@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="DropBox Tests" verbose="1" group-by-instances="true">
+    <listeners>
+        <listener class-name="Utils.Listeners.RetryListener"/>
+        <listener class-name="Utils.Listeners.TestListener"/>
+    </listeners>
+    <test name="DropBoxTest" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+            </run>
+        </groups>
+      <classes>
+          <class name="Services.DropBox.DropBoxLoginTestCases"/>
+          <class name="Services.DropBox.DBFilesTestCases"/>
+          <class name="Services.DropBox.DBMembersTestCases"/>
+      </classes>
+        <!--<packages>-->
+            <!--<package name="Services.DropBox"/>-->
+        <!--</packages>-->
+    </test>
+</suite>

@@ -1,0 +1,121 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Service" verbose="1" annotations="JDK">
+    <listeners>
+        <listener class-name="Utils.Listeners.RetryListener"/>
+        <listener class-name="Utils.Listeners.TestListener"/>
+    </listeners>
+    <parameter name="SkyfenceName" value="aobertas"/>
+    <test name="MappingValidationTest" verbose="1">
+        <groups>
+            <run>
+                <exclude name="Services"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Utils.validation.RunMappingValidationTest"/>
+        </classes>
+    </test>
+    <test name="AWS" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <exclude name="AmazonInstancesGroup"/>
+                <exclude name="IAMSuccessLoginGroup"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="Services.AWSAmazon"/>
+        </packages>
+    </test>
+    <test name="AzureTests" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <exclude name="BrokenPage"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="Services.O365Azure"/>
+        </packages>
+    </test>
+    <test name="BoxTest" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <exclude name="BoxUsersGroup"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="Services.Box"/>
+        </packages>
+    </test>
+    <test name="DropBoxTest" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="Services.DropBox"/>
+        </packages>
+    </test>
+    <test name="GoogleTest" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <exclude name="Broken.*"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="Services.Google"/>
+        </packages>
+    </test>
+    <test name="Office365Test" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="Services.O365"/>
+        </packages>
+    </test>
+    <test name="SF Classic tests" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <exclude name="BrokenComponent"/>
+                <exclude name="SFLightning"/>
+                <include name="SFLoginGroup"/>
+                <include name="SFClassic"/>
+                <include name="Services"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="Services.Salesforce"/>
+        </packages>
+    </test>
+    <test name="SF Lightning tests" verbose="1" group-by-instances="true">
+        <groups>
+            <define name="Services"/>
+            <run>
+                <exclude name="FailureLoginGroup"/>
+                <exclude name="BrokenComponent"/>
+                <exclude name="SFClassic"/>
+                <include name="SFLightning"/>
+                <include name="SFLoginGroup"/>
+                <include name="Services"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="Services.Salesforce"/>
+        </packages>
+    </test>
+</suite>

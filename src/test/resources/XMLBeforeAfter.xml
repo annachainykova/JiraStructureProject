@@ -1,6 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="XML" verbose="0" group-by-instances="true">
     <test name="XML">
+        <groups>
+            <run>
+                <exclude name="Sanity"/>
+            </run>
+        </groups>
         <classes>
             <class name="hillelauto.XMLBeforeAfter.Tests"></class>
         </classes>
