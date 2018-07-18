@@ -7,12 +7,12 @@
 
 
     <test name="Jira" verbose="1" group-by-instances="true">
-        <groups>
-            <run>
-                <exclude name="disabled"/>
-                <include name="Issues.*"/>
-            </run>
-        </groups>
+        <!--<groups>-->
+            <!--<run>-->
+                <!--<exclude name="disabled"/>-->
+                <!--<include name="Issues.*"/>-->
+            <!--</run>-->
+        <!--</groups>-->
 
         <packages>
             <package name="hillelauto.Jira"/>
