@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverTestBase {
     protected WebDriver driver;
-    private boolean localDriver = false;
+    private boolean localDriver = true;
     private String remoteAddress = "http://192.168.229.2:9515";
 
     //protected APIClient client;
