@@ -1,6 +1,7 @@
 package hillelauto.Robert_cools.Utils.helpers;
 
-import Configs.TestConfigVariables;
+
+import hillelauto.Robert_cools.Configs.TestConfigVariables;
 import hillelauto.Robert_cools.Utils.connectionToSkyfence.SkyfenceConnectionSettings;
 import org.apache.commons.io.FileUtils;
 import org.testng.Assert;

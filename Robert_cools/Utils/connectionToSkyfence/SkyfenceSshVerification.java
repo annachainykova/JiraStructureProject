@@ -1,11 +1,10 @@
 package hillelauto.Robert_cools.Utils.connectionToSkyfence;
 
-import Utils.MappingReports;
-import Utils.helpers.Tools;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
+import hillelauto.Robert_cools.Utils.helpers.Tools;
 import org.apache.commons.io.IOUtils;
 
 import java.io.InputStream;

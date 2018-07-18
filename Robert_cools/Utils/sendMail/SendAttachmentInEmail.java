@@ -1,6 +1,6 @@
 package hillelauto.Robert_cools.Utils.sendMail;
 
-import Utils.helpers.EnvironmentHelper;
+import hillelauto.Robert_cools.Utils.helpers.EnvironmentHelper;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;

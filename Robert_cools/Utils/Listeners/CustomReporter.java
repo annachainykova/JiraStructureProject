@@ -1,6 +1,7 @@
 package hillelauto.Robert_cools.Utils.Listeners;
 
-import Utils.MappingReports;
+
+import hillelauto.Robert_cools.Utils.MappingReports;
 import org.apache.commons.io.FileUtils;
 import org.testng.*;
 import org.testng.xml.XmlSuite;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static Utils.helpers.EnvironmentHelper.getCurrentDate;
+import static hillelauto.Robert_cools.Utils.helpers.EnvironmentHelper.getCurrentDate;
 
 
 public class CustomReporter implements IReporter {

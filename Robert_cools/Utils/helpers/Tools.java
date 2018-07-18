@@ -1,6 +1,6 @@
 package hillelauto.Robert_cools.Utils.helpers;
 
-import Configs.TestConfigVariables;
+import hillelauto.Robert_cools.Configs.TestConfigVariables;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;

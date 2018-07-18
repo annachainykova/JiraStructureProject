@@ -1,8 +1,8 @@
 package hillelauto.Robert_cools.Utils.compareScreenshots;
 
-import Configs.TestConfigVariables;
-import Utils.Listeners.Retry;
-import Utils.sendMail.SendAttachmentInEmail;
+import hillelauto.Robert_cools.Configs.TestConfigVariables;
+import hillelauto.Robert_cools.Utils.Listeners.Retry;
+import hillelauto.Robert_cools.Utils.sendMail.SendAttachmentInEmail;
 import org.testng.Assert;
 
 import javax.imageio.ImageIO;
@@ -10,8 +10,8 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
 import java.io.File;
 
-import static Utils.helpers.EnvironmentHelper.*;
-import static Utils.helpers.Tools.takeScreenshot;
+import static hillelauto.Robert_cools.Utils.helpers.EnvironmentHelper.*;
+
 
 public class ScreenshotsTools implements TestConfigVariables {
     private static boolean failureCount;

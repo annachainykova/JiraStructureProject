@@ -19,7 +19,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.log4j.Logger;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
