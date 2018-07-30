@@ -1,10 +1,13 @@
 package hillelauto.API_restassured;
 
+import hillelauto.Helper.User;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -25,14 +28,19 @@ public class APITests {
 
     @Test(description = "Requirement 11 - Start server state", priority = -3)
     public void startServerState() {
-        given().
+         List <User> users = given().
                 contentType("application/json").
         when().
                 get(Vars.basePath).
         then().
-                assertThat().contentType("application/json").
-                assertThat().body("id", hasItem("1")).
-                assertThat().body(equalTo(APIjsonObjects.startServer()));
+     //           assertThat().contentType("application/json").
+//                assertThat().body("id", hasItem("1")).
+                 extract().body().jsonPath().getList("", User.class);
+
+         for(User user : users){
+             System.out.println(user.toString());
+         }
+                //assertThat().body(equalTo(APIjsonObjects.startServer()));
     }
 
 
